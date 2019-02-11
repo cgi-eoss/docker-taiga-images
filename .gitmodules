@@ -1,0 +1,12 @@
+[submodule "taiga-back"]
+	path = docker-taiga-back/taiga-back
+	url = https://github.com/taigaio/taiga-back.git
+	branch = stable
+[submodule "taiga-events"]
+	path = docker-taiga-events/taiga-events
+	url = https://github.com/taigaio/taiga-events.git
+	branch = master
+[submodule "taiga-front"]
+	path = docker-taiga-front/taiga-front-dist
+	url = https://github.com/taigaio/taiga-front-dist.git
+	branch = stable
