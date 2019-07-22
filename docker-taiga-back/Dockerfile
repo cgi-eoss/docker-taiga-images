@@ -1,4 +1,4 @@
-FROM alpine:latest
+FROM python:3.6-alpine
 
 EXPOSE 8001
 
@@ -10,10 +10,8 @@ RUN apk add --no-cache \
  libjpeg-turbo-dev \
  libxml2-dev \
  libxslt-dev \
- postgresql-dev \
- py3-virtualenv \
- python3 \
- python3-dev
+ postgresql-dev
+RUN pip install virtualenv
 
 WORKDIR /taiga/taiga-back
 
@@ -35,7 +33,7 @@ RUN mkdir -p /taiga \
 # Switch user and prepare taiga-back dependencies
 USER taiga
 
-RUN virtualenv /taiga/virtualenv \
+RUN virtualenv --python=python3.6 /taiga/virtualenv \
  && source /taiga/virtualenv/bin/activate \
  && pip install -r requirements.txt
 
