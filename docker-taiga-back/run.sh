@@ -11,4 +11,8 @@ python manage.py migrate --noinput
 python manage.py collectstatic --noinput
 python manage.py compilemessages
 
+# Start celery task runner
+celery -A taiga worker -D
+
+# Start taiga-back
 gunicorn -w3 -t60 --pythonpath=. -b 0.0.0.0:8001 taiga.wsgi
